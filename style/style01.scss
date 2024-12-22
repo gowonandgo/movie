@@ -1,0 +1,303 @@
+$grey: rgb(166, 166, 166);
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  position: relative;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  width: 100%;
+  height: 100vh;
+  padding: 1rem;
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+
+    * {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .left::before,
+    .right::before {
+      content: "";
+      width: calc(100% - 1.5rem);
+      height: 100%;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      position: absolute;
+      left: calc(1.5rem / 2);
+      top: 0;
+      pointer-events: none;
+    }
+
+    .left::after,
+    .right::after {
+      content: "";
+      width: 100%;
+      height: calc(100% - 1.5rem);
+      border-right: 1px solid black;
+      border-left: 1px solid black;
+      position: absolute;
+      left: 0;
+      top: calc(1.5rem / 2);
+      pointer-events: none;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+      gap: 1rem;
+      .index_wrapper {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        .index {
+          display: flex;
+          justify-content: flex-start;
+          gap: 1rem;
+
+          width: auto;
+          height: 3rem;
+          * {
+            font-family: futura-pt, sans-serif;
+            font-weight: 300;
+            font-size: 2rem;
+          }
+          .num {
+            width: 3rem;
+            height: 3rem;
+            border: 1px solid #000;
+            border-radius: 50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .title {
+            width: auto;
+            &:hover {
+              color: $grey;
+            }
+          }
+        }
+      }
+
+      .page_title {
+        width: 100%;
+        height: auto;
+        color: white;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 2rem;
+
+        border-top: 1px solid #000;
+        padding-top: 1rem;
+
+        .logo {
+          width: 17rem;
+          height: auto;
+          svg {
+            width: 100%;
+          }
+        }
+
+        .page_desc {
+          width: calc(100% - 17rem);
+          height: auto;
+          color: #000;
+
+          font-family: noh-sori, sans-serif;
+          font-weight: 400;
+          font-size: 1rem;
+          word-break: keep-all;
+          line-height: 1.6;
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      align-items: stretch;
+
+      padding: 1rem;
+      .movie_name {
+        font-family: futura-pt, sans-serif;
+        font-weight: 400;
+        font-size: 2rem;
+        width: 100%;
+        height: 4rem;
+        padding-bottom: 1rem;
+
+
+        border-bottom: 1px solid #000;
+
+        display: none;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .movie_desc_wrapper {
+        width: 100%;
+        height: 100%;
+        padding-top: 1rem;
+        display: none;
+        .mdw_left {
+          padding-right: 1rem;
+          width: 100%;
+          height: 100%;
+
+          border-right: 1px solid #000;
+
+          margin-right: 1rem;
+
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          .info {
+            font-family: noh-sori, sans-serif;
+            font-weight: 400;
+            width: auto;
+            height: auto;
+            
+
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            .inner_info{
+              width: 100%;
+              display: flex;
+              justify-content: flex-start;
+              line-height: 1.6;
+              word-break: keep-all;
+            }
+
+            .info_top{
+
+              width: auto;
+              padding: 0.3rem 0.5rem;
+              border-radius: 20px;
+              border: 1px solid #000;
+            }
+          }
+        }
+      }
+      .mdw_right {
+        width: auto;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .enter_bt {
+          width: 10rem;
+          height: 10rem;
+
+          border: 1px solid #000;
+          border-radius: 100px;
+          background-color: #fff;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          transition: all 0.15s ease-in-out;
+
+          &:hover {
+            background-color: rgb(250, 255, 149);
+          }
+
+          svg {
+            width: 50%;
+            height: auto;
+            path {
+              stroke-width: 1px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+
+    
+      * {
+        width: 100%;
+      }
+
+       .right {
+        height: auto;
+       }
+
+       .page_title{
+        padding-bottom: 0.5rem;
+       }
+    }
+
+   
+
+    @media (max-width: 1000px) {
+      .movie_desc_wrapper {
+        display: flex;
+        flex-direction: column; 
+        justify-content: flex-start;
+        width: 100%; 
+        align-items: flex-start;
+        height: 100%;
+      }
+
+      .movie_desc_wrapper .mdw_left {
+        width: 100%;
+        height: auto;
+        border-right: none !important;
+        margin-right: 0;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #000;
+      }
+
+      .movie_desc_wrapper .mdw_right {
+        width: 100%;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
